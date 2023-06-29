@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">radius</string>
+    <string name="submit">Submit</string>
+    <string name="refresh">Refresh</string>
+    <string name="submitted">Submitted</string>
+    <string name="apartment">apartment</string>
+    <string name="condo">condo</string>
+    <string name="land">land</string>
+    <string name="boat">boat</string>
+    <string name="rooms">rooms</string>
+    <string name="noroom">no-room</string>
+    <string name="swimming">swimming</string>
+    <string name="garden">garden</string>
+    <string name="garage">garage</string>
+    <string name="exclusions">EXCLUSIONS</string>
+    <string name="select_atleast_one">SELECT ATLEAST ONE OF EACH</string>
+</resources>
