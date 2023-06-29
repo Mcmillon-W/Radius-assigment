@@ -30,8 +30,13 @@ class MainActivity : AppCompatActivity(), FacilityCommunicator {
     private fun setupBtn() {
         binding.submitBtn.setOnClickListener {
             //maybe a POST API call but for now this
+            var msg: String = ""
+            facilityAdapter?.facilities?.forEach { data ->
+                // this is just to ensure the correct stuff are being passed
+                msg += "  " +data.name.toString() + ":" + data.options?.find { it.id == data.selectedOptionId }?.name.toString()
+            }
             runSafely {
-                showToast(resources.getString(R.string.submitted))
+                showToast(resources.getString(R.string.submitted) + msg)
             }
         }
         binding.refreshBtn.setOnClickListener {
@@ -92,6 +97,7 @@ class MainActivity : AppCompatActivity(), FacilityCommunicator {
                 exclusionAdapter.exclusions = it
                 viewModel?.facilities?.value?.let { facilities -> exclusionAdapter.facilities = facilities }
                 exclusionAdapter.notifyDataSetChanged()
+                checkButton()
             }
         }
     }

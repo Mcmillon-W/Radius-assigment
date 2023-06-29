@@ -27,6 +27,13 @@ class FacilityAdapter(val exclusionFlow: Boolean = false): RecyclerView.Adapter<
             val uncheckedColor = context.getColor(R.color.black)
             holder.title?.text = data?.name
             holder.radioGrp?.removeAllViews()
+            holder.radioGrp?.apply {
+                data?.selectedOptionId = checkedRadioButtonId
+                setOnCheckedChangeListener { _, checkedId ->
+                    data?.selectedOptionId = checkedRadioButtonId
+                    communicator?.checkButton()
+                }
+            }
             data?.options?.forEach { option ->
                 val radioBtn = RadioButton(context).apply {
                     layoutParams = ViewGroup.LayoutParams(
@@ -53,16 +60,9 @@ class FacilityAdapter(val exclusionFlow: Boolean = false): RecyclerView.Adapter<
                             ), intArrayOf(checkedColor, uncheckedColor)
                         )
                     )
+                    isChecked = option?.id == holder?.radioGrp?.checkedRadioButtonId
                 }
                 holder.radioGrp?.addView(radioBtn)
-            }
-            holder.radioGrp?.apply {
-                data?.selectedOptionId = checkedRadioButtonId
-                setOnCheckedChangeListener { _, checkedId ->
-                    data?.selectedOptionId = checkedRadioButtonId
-                    requestLayout()
-                    communicator?.checkButton()
-                }
             }
         } else {
             val exclusiondata = exclusions.getOrNull(position)
