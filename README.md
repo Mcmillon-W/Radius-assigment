@@ -1,6 +1,6 @@
-# Radius-assigment
-Radius assignment
 <div align="center">
+  
+# Radius-assigment
   
 ### Button Disabled
 <img width="382" alt="image" src="https://github.com/Mcmillon-W/Radius-assigment/assets/87062465/672f3e8e-b30e-4550-8555-fec854d152cb"> 
@@ -23,3 +23,9 @@ Radius assignment
  **Note:**
  - Our first source of truth is the DB but if the operation takes more than 2 seconds we will make the API call so as not to break UX. Of course if nothing is there in DB we will make the API call
  - Im showing a progressBar when data hasn't been fetched either from DB or from API
+ - Have locked the screen orientation to be portrait
+
+### Dependencies
+Mainly have imported 2 dependencies other than the normal ones which we get when initializing an Empty Activity from Android Studio.
+- Retrofit (for making the API call and callbacks)
+- Room (for persistence of data - DB)
